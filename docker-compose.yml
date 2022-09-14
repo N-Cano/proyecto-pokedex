@@ -1,0 +1,12 @@
+version: "3"
+services:
+  pokedex:
+    container_name: pokedex
+    image: node:lts
+    working_dir: /var/www/html/app/
+    entrypoint: ["npm", "run", "dev", "--", "--port=80", "--host"]
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html/app
+    tty: true
