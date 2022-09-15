@@ -4,6 +4,7 @@
     <LogoutButton />
   </header>
 
+  <PokemonDetail />
   <PokemonList />
 </template>
 
@@ -17,6 +18,7 @@
 <script setup>
 import LogoutButton from '@/components/LogoutButton.vue';
 import PokemonList from '@/components/PokemonList.vue';
+import PokemonDetail from '@/components/PokemonDetail.vue';
 
 import { useAuthStore as auth} from '@/stores/auth';
 import { ref, onMounted } from 'vue';
