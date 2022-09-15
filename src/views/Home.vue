@@ -11,7 +11,13 @@
 <style scoped>
   header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    max-width: 300px;
+  }
+  
+  button {
+    height: 30px;
   }
 </style>
 
@@ -21,11 +27,16 @@ import PokemonList from '@/components/PokemonList.vue';
 import PokemonDetail from '@/components/PokemonDetail.vue';
 
 import { useAuthStore as auth} from '@/stores/auth';
-import { ref, onMounted } from 'vue';
+import { usePokeStore } from '@/stores/pokedex'
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const name = ref('')
 
 onMounted(async () => {
     name.value = (await auth().user()).name
+})
+
+onUnmounted(() => {
+  usePokeStore().clearGarbage()
 })
 </script>

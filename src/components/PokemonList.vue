@@ -3,7 +3,7 @@
         <li v-for="poke in pokes" :key="poke.id">
             <div @click="onClick(poke.id)">
                 <img :src="poke.img" :alt="poke.name" />
-                <span>{{poke.name}}</span>
+                <p>{{poke.name}}</p>
             </div>
         </li>
     </ul>
@@ -12,6 +12,19 @@
 <style scoped>
     li {
         list-style: none;
+    }
+
+    div {
+        cursor: pointer;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        max-width: 200px;
+    }
+
+    p {
+        display: inline;
+        padding: 0;
     }
 </style>
 
@@ -27,6 +40,6 @@ async function onClick(id) {
 
 onMounted(async () => {
     await poke().allPokemons()
-    pokes.value = poke().pokemons
+    pokes.value = poke().pokes
 })
 </script>

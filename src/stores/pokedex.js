@@ -10,11 +10,6 @@ export const usePokeStore = defineStore("pokeStore", {
         }
     },
 
-    getters: {
-        pokemons: (state) => state.pokes,
-        pokemon: (state) => state.poke,
-    },
-
     actions: {
         async allPokemons() {
             const payload = await axios.get(`${config.url}?limit=20`)
@@ -28,19 +23,35 @@ export const usePokeStore = defineStore("pokeStore", {
             }) ?? this.pokes
         },
         async onePokemon(id) {
+            let poke = localStorage.getItem(`poke_${id}`)
+            if (poke) return this.poke = JSON.parse(poke)
+
             const payload = (await axios.get(`${config.url}/${id}`))?.data
+            if (! payload) return this.poke = {}
 
-            if (! payload) return this.poke = null
-
-            console.log(payload)
-
-            this.poke = {
+            poke = {
+                id: payload.id,
                 name: payload.name,
                 img: `${config.images}/${id}.png`,
             }
+
+            this.poke = poke
+            localStorage.setItem(`poke_${id}`, JSON.stringify(poke))
         },
         clearPokemon() {
             this.poke = {}
+        },
+        clearGarbage() {
+            this.poke = {}
+            this.pokes = []
+            
+            const clearLocalStorage = () => Object.keys(localStorage).forEach((key) => {
+                if (key.includes('poke_')) {
+                    localStorage.removeItem(key)
+                }
+            })
+
+            clearLocalStorage()
         }
     },
 })

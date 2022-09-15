@@ -2,29 +2,37 @@
     <div v-show="show">
         <img :src="pokemon.img"/>
         <h1>{{pokemon?.name}}</h1>
-        <button @click="close()">Close</button>
+        <button @click="close">Close</button>
     </div>
 </template>
 
-<style scoped>
-    div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        background: white;
-    }
-</style>
-
-<script setup>  
+<script setup>
 import { computed } from 'vue';
-import { usePokeStore as poke} from '../stores/pokedex';
+import { usePokeStore } from '../stores/pokedex';
 
-const pokemon = computed( () => poke().poke )
-const show = computed( () => Object.keys(poke().pokemon).length !== 0 )
+const poke = usePokeStore()
+
+const pokemon = computed( () => poke.poke )
+const show = computed( () => {
+    if (Object.keys(pokemon.value).length) {
+        // chanchada para evitar scroll fuera del modal
+        document.body.style.overflow = 'hidden'
+        return true
+    }
+
+    document.body.style.overflow = 'auto'
+    return false
+} )
 
 function close() {
-    poke().clearPokemon()
+    poke.clearPokemon()
 }
 </script>
+
+<style scoped>
+    div {
+        position: fixed;
+        inset: 1;
+        background: gray;
+    }
+</style>
