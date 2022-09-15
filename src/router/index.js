@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Authenticated from './guards/Authenticated'
+import Guest from './guards/Guest'
 
 export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,12 +15,12 @@ export default createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),
+      beforeEnter: [Guest]
     },
     { 
       path: '/:pathMatch(.*)*',
       name: '404',
-      component: () => import('@/views/404.vue'),
-      beforeEnter: [Authenticated]
+      redirect: { name: 'home' },
     },
   ]
 })
