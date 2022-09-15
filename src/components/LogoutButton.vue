@@ -9,11 +9,7 @@ const router = useRouter()
 const auth = useAuthStore()
 
 async function logOut() {
-    try {
-        await auth.logOut()
-        router.push('/login')
-    } catch (error) {
-        console.error(error);
-    }
+    await auth.logOut()
+    router.push('/login')
 }
 </script>

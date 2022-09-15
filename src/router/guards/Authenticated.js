@@ -1,10 +1,5 @@
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore as auth} from '@/stores/auth';
 
 export default async function () {
-    const auth = useAuthStore()
-    const user = auth.user()
-
-    if (! user) {
-        return 'login'
-    }
+    if (! await auth().user()) return 'login'
 }

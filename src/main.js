@@ -1,19 +1,14 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import { initializeApp as initializeFirebase } from "firebase/app";
+import { createApp as vue } from 'vue'
+import { createPinia as pinia } from 'pinia'
+import { initializeApp as firebase } from "firebase/app";
 
 import App from './App.vue'
 import router from './router'
-import firebaseConfig from './config/firebase'
+import fb from './config/firebase'
 
-import './assets/main.css'
+firebase(fb);
 
-initializeFirebase(firebaseConfig);
-
-const pinia = createPinia()
-const app = createApp(App)
-
-app.use(pinia)
-app.use(router)
-
-app.mount('#app')
+vue(App)
+    .use(pinia())
+    .use(router)
+    .mount('#app')
