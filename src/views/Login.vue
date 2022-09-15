@@ -2,6 +2,9 @@
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router';
 
+// chanchada para actualizar el título de la web
+document.title = 'Pokedex | Login'
+
 const router = useRouter()
 const auth = useAuthStore()
 

@@ -17,7 +17,7 @@ export default createRouter({
       component: () => import('@/views/Login.vue'),
       beforeEnter: [Guest]
     },
-    { 
+    {
       path: '/:pathMatch(.*)*',
       name: '404',
       redirect: { name: 'home' },

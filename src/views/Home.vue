@@ -30,6 +30,9 @@ import { useAuthStore as auth} from '@/stores/auth';
 import { usePokeStore } from '@/stores/pokedex'
 import { ref, onMounted, onUnmounted } from 'vue';
 
+// chanchada para actualizar el título de la web
+document.title = 'Pokedex'
+
 const name = ref('')
 
 onMounted(async () => {
