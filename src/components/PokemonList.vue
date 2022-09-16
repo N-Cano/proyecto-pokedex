@@ -30,16 +30,11 @@
 
 <script setup>
 import { usePokeStore as poke } from '@/stores/pokedex'
-import { onMounted, ref } from 'vue';
+import { computed } from 'vue';
 
-const pokes = ref([])
+const pokes = computed( () => poke().filteredPokes )
 
 async function onClick(id) {
-    await poke().onePokemon(id)
+    await poke().loadPoke(id)
 }
-
-onMounted(async () => {
-    await poke().allPokemons()
-    pokes.value = poke().pokes
-})
 </script>

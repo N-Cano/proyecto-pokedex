@@ -1,6 +1,6 @@
 <template>
-    <div v-show="show">
-        <img :src="pokemon.img"/>
+    <div v-if="show">
+        <img :src="pokemon.img" />
         <h1>{{pokemon?.name}}</h1>
         <button @click="close">Close</button>
     </div>
@@ -8,12 +8,12 @@
 
 <script setup>
 import { computed } from 'vue';
-import { usePokeStore } from '../stores/pokedex';
+import { usePokeStore } from '@/stores/pokedex';
 
 const poke = usePokeStore()
 
-const pokemon = computed( () => poke.poke )
-const show = computed( () => {
+const pokemon = computed(() => poke.poke)
+const show = computed(() => {
     if (Object.keys(pokemon.value).length) {
         // chanchada para evitar scroll fuera del modal
         document.body.style.overflow = 'hidden'
@@ -22,7 +22,7 @@ const show = computed( () => {
 
     document.body.style.overflow = 'auto'
     return false
-} )
+})
 
 function close() {
     poke.clearPokemon()
@@ -30,9 +30,12 @@ function close() {
 </script>
 
 <style scoped>
-    div {
-        position: fixed;
-        inset: 1;
-        background: gray;
-    }
+div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: lightgray;
+}
 </style>
