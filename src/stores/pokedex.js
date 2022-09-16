@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import config from '@/config/pokeapi'
+import { ucfirst } from '@/helpers'
 
 export const usePokeStore = defineStore("pokeStore", {
     state() {
@@ -19,7 +20,7 @@ export const usePokeStore = defineStore("pokeStore", {
                 const id = Number(pokemon.url.split("/")[6])
                 return {
                     id,
-                    name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
+                    name: ucfirst(pokemon.name),
                     img: `${config.images}/${id}.png`,
                 }
             }) ?? []

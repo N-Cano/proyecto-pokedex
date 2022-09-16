@@ -9,6 +9,7 @@
 <script setup>
 import { computed } from 'vue';
 import { usePokeStore } from '@/stores/pokedex';
+import { ucfirst } from '@/helpers'
 
 const poke = usePokeStore()
 
@@ -17,10 +18,15 @@ const show = computed(() => {
     if (Object.keys(pokemon.value).length) {
         // chanchada para evitar scroll fuera del modal
         document.body.style.overflow = 'hidden'
+
+        // chanchada para actualizar el título de la web
+        document.title = `Pokedex - ${ucfirst(pokemon.value.name)}`
+
         return true
     }
 
     document.body.style.overflow = 'auto'
+    document.title = 'Pokedex'
     return false
 })
 
