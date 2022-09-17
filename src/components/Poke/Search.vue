@@ -1,5 +1,5 @@
 <template>
-    <input type="text" @input.prevent="search">
+    <input type="text" @input.prevent="search" placeholder="Search">
 </template>
 
 <script setup>

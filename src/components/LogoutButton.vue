@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="logOut" class="material-symbols-outlined">LogOut</button>
+    <button @click.prevent="logOut">LogOut</button>
 </template>
 <script setup>
 import { useRouter } from 'vue-router';
