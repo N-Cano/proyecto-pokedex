@@ -14,7 +14,7 @@ export const usePokeStore = defineStore("pokeStore", {
 
     actions: {
         async loadPokes() {
-            const payload = await axios.get(`${config.url}?limit=${20}`)
+            const payload = await axios.get(`${config.url}?limit=${99}`)
 
             this.pokes = payload?.data?.results?.map((pokemon) => {
                 const id = Number(pokemon.url.split("/")[6])
@@ -36,7 +36,7 @@ export const usePokeStore = defineStore("pokeStore", {
 
             poke = {
                 id: payload.id,
-                name: payload.name,
+                name: ucfirst(payload.name),
                 img: `${config.images}/${id}.png`,
             }
 

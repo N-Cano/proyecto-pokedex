@@ -1,27 +1,19 @@
 <template>
-  <header>
-    <h1>{{ name || 'Sin usuario en store'}}</h1>
-    <LogoutButton />
-  </header>
-
-  <PokemonSearch />
-  <PokemonList />
-
-  <PokemonDetail />
+  <div class="home">
+    <header class="header-home">
+      <h1 class="name-home">{{ name || 'Sin usuario en store'}}</h1>
+      <LogoutButton class="btn-home" />
+    </header>
+    <img class="img-home" src="../assets/img/logo-pokedex.svg" alt="logo-pokedex.svg">
+    <main class="main-home">
+      <PokemonSearch class="search" />
+      <PokemonList class="list"/>
+      <PokemonDetail />
+    </main>
+    <footer>.:Proyecto with PokeAPI | Developed by Nahuel Cano:.</footer>
+    </div>
 </template>
 
-<style scoped>
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 300px;
-}
-
-button {
-  height: 30px;
-}
-</style>
 
 <script setup>
 import LogoutButton from '@/components/LogoutButton.vue';
@@ -33,7 +25,6 @@ import { usePokeStore as poke } from '@/stores/pokedex'
 
 import { ref, onMounted, onUnmounted } from 'vue';
 
-// chanchada para actualizar el título de la web
 document.title = 'Pokedex'
 
 const name = ref('')

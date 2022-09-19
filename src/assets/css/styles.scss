@@ -1,0 +1,21 @@
+// IMPORTS
+@import './login';
+@import './home';
+
+// GENERAL
+#app {
+    background-color: #d6cbc1;
+    font-family: "Courier New", Courier, monospace;
+}
+
+// HOME
+
+// FOOTER
+footer {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-style: italic;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}

@@ -8,12 +8,10 @@
 
 <script setup>
 import { computed } from 'vue';
-import { usePokeStore } from '@/stores/pokedex';
+import { usePokeStore as poke } from '@/stores/pokedex';
 import { ucfirst } from '@/helpers'
 
-const poke = usePokeStore()
-
-const pokemon = computed(() => poke.poke)
+const pokemon = computed(() => poke().poke)
 const show = computed(() => {
     if (Object.keys(pokemon.value).length) {
         // chanchada para evitar scroll fuera del modal
@@ -31,7 +29,7 @@ const show = computed(() => {
 })
 
 function close() {
-    poke.clearPokemon()
+    poke().clearPokemon()
 }
 </script>
 
