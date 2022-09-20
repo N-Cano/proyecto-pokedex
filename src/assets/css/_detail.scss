@@ -1,0 +1,59 @@
+// DETAIL
+.table-detail {
+    display: flex;
+    align-content: center;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    margin: auto;
+    background: #fff;
+    max-width: 60rem;
+    width: 100%;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+.btn-detail {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    background: #d6a99a;
+    box-shadow: #d6a99a 0 10px 20px -10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+}
+.btn-detail:hover {
+    background: #e16036;
+}
+
+.img-detail {
+    width: 10rem;
+    height: 10rem;
+}
+
+.name-detail {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.ul-ditail {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+    font-size: 18px;
+    list-style: none;
+}
+
+.abilities {
+    font-weight: 700;
+    font-size: 20px;
+    color: #d6a99a;
+    padding-bottom: 1.5rem;
+}
+
+.li-ditail {
+    padding-bottom: 1rem;
+}

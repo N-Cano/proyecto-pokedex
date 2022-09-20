@@ -28,20 +28,17 @@ export const usePokeStore = defineStore("pokeStore", {
             this.filteredPokes = this.pokes
         },
         async loadPoke(id) {
-            let poke = localStorage.getItem(`poke_${id}`)
-            if (poke) return this.poke = JSON.parse(poke)
 
             const payload = (await axios.get(`${config.url}/${id}`))?.data
             if (!payload) return this.poke = {}
 
-            poke = {
+            this.poke = {
                 id: payload.id,
                 name: ucfirst(payload.name),
                 img: `${config.images}/${id}.png`,
+                abilities: payload.abilities.map((ability) => ucfirst(ability.ability.name))
             }
 
-            this.poke = poke
-            localStorage.setItem(`poke_${id}`, JSON.stringify(poke))
         },
         searchPokes(name = '') {
             this.filteredPokes = this.pokes.filter((poke) => (

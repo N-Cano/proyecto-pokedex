@@ -8,7 +8,7 @@
     <main class="main-home">
       <PokemonSearch class="search" />
       <PokemonList class="list"/>
-      <PokemonDetail />
+      <PokemonDetail class="detail"/>
     </main>
     <footer>.:Proyecto with PokeAPI | Developed by Nahuel Cano:.</footer>
     </div>

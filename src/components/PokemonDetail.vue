@@ -1,8 +1,12 @@
 <template>
-    <div v-if="show">
-        <img :src="pokemon.img" />
-        <h1>{{pokemon?.name}}</h1>
-        <button @click="close">Close</button>
+    <div class="table-detail" v-if="show">
+        <img class="img-detail" :src="pokemon.img" />
+        <h1 class="name-detail">{{pokemon?.name}}</h1>
+        <ul class="ul-ditail">
+            <li class="abilities">Abilities</li>
+            <li class="li-ditail" v-for="ability in pokemon.abilities ">{{ability}}</li>
+        </ul>
+        <button class="btn-detail material-symbols-outlined" @click="close">Close</button>
     </div>
 </template>
 
@@ -17,7 +21,6 @@ const show = computed(() => {
         // chanchada para evitar scroll fuera del modal
         document.body.style.overflow = 'hidden'
 
-        // chanchada para actualizar el título de la web
         document.title = `Pokedex - ${ucfirst(pokemon.value.name)}`
 
         return true
@@ -32,14 +35,3 @@ function close() {
     poke().clearPokemon()
 }
 </script>
-
-<style scoped>
-div {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: lightgray;
-}
-</style>

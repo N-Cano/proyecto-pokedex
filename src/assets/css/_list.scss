@@ -1,0 +1,36 @@
+// LIST
+.ul-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5rem;
+}
+
+.li-list {
+    margin: .8rem;
+    list-style: none;
+}
+
+.list-card {
+    background: #d6a99a;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+}
+
+.list-card p {
+    padding-top: 5rem;
+    display: inline;
+    padding: 0;
+}
+
+.list-card:hover {
+    background: #e16036;
+}

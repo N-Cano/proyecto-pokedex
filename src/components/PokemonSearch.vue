@@ -1,5 +1,5 @@
 <template>
-    <input placeholder="  Pokemon Name" type="text" @input.prevent="search">
+    <input placeholder="Pokemon Name" type="text" @input.prevent="search">
 </template>
 
 <script setup>

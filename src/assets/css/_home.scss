@@ -1,3 +1,7 @@
+@import './detail';
+@import './list';
+@import './search';
+
 .home {
     font-size: 14px;
     display: flex;
@@ -46,50 +50,4 @@
 
 .main-home {
     justify-content: center;
-}
-
-.search {
-    width: 50rem;
-    height: 3rem;
-    border: none;
-    border-radius: 10px;
-    margin: auto;
-    display: flex;
-    margin-top: 2rem;
-}
-
-.ul-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 5rem;
-}
-
-.li-list {
-    margin: .8rem;
-    list-style: none;
-}
-
-.list-card {
-    background: #d6a99a;
-    border-radius: 10px;
-    flex-direction: column;
-    width: 10rem;
-    height: 10rem;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    max-width: 200px;
-}
-
-.list-card p {
-    padding-top: 5rem;
-    display: inline;
-    padding: 0;
-}
-
-.list-card:hover {
-    background: #e16036;
 }
